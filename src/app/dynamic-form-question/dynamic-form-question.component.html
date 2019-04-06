@@ -12,7 +12,7 @@
     </mat-form-field>
 
     <mat-form-field *ngSwitchCase="'dropdown'" [ngStyle]="{'min-width.px': question.width}">
-      <mat-label>Favorite animal</mat-label>
+      <mat-label>{{question.label}}</mat-label>
       <mat-select
         [id]="question.key"
         [formControlName]="question.key"
