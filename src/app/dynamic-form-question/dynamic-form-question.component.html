@@ -1,0 +1,29 @@
+<div [formGroup]="form">
+
+  <div [ngSwitch]="question.controlType">
+
+    <mat-form-field *ngSwitchCase="'textbox'" [ngStyle]="{'min-width.px': question.width}">
+      <input matInput
+        [id]="question.key"
+        [formControlName]="question.key"
+        [type]="question.type"
+        [required]="question.required"
+        [placeholder]="question.label">
+    </mat-form-field>
+
+    <mat-form-field *ngSwitchCase="'dropdown'" [ngStyle]="{'min-width.px': question.width}">
+      <mat-label>Favorite animal</mat-label>
+      <mat-select
+        [id]="question.key"
+        [formControlName]="question.key"
+        [required]="question.required">
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+<!--
+  <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
+-->
+</div>
